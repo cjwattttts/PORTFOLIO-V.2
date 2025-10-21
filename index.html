@@ -442,6 +442,22 @@
       opacity: 0.35;
       border-radius: 2px;
     }
+    .edge-glow-left, .edge-glow-right {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 140px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(75px) saturate(200%);
+      opacity: 0.14;
+      background: linear-gradient(180deg, #aea6ff 0%, #5d8dfb 55%, #7A47ED 100%);
+    }
+    .edge-glow-left { left: 0; }
+    .edge-glow-right {
+      right: 0;
+      background: linear-gradient(180deg, #6041c4 0%, #6578f6 80%, #94e3ff 100%);
+    }
   </style>
 </head>
 <body>
@@ -454,6 +470,8 @@
     </div>
   </nav>
   <main>
+    <div class="edge-glow-left"></div>
+    <div class="edge-glow-right"></div>
     <div class="hero-content">
       <div class="hero-graph-container">
         <!-- Lucide Line Chart icon: https://lucide.dev/icons/line-chart -->
