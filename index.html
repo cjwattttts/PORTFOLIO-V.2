@@ -189,7 +189,21 @@
       justify-content: center;
       align-items: flex-start;
       width: 100%;
+      max-width: 1100px;
     }
+    /* Widen about cards equally */
+    .about-section .glass-card {
+      min-width: 0;
+      max-width: none;
+      width: 48%;
+    }
+    /* Make emoji card narrower and summary card wider */
+    .about-row .glass-card:first-child { width: 36%; }
+    .about-row .glass-card:last-child { width: 64%; }
+    /* Merged about layout */
+    .about-merged { width: 100% !important; max-width: 1100px; }
+    .about-combined { display: flex; gap: 32px; align-items: center; justify-content: flex-start; text-align: left; }
+    @media (max-width: 900px) { .about-combined { flex-direction: column; text-align: center; } }
     .glass-card {
       background: rgba(27, 29, 47, 0.33);
       border-radius: 24px;
@@ -213,7 +227,7 @@
     }
     .about-photo {
       width: 68%;
-      max-width: 180px;
+      max-width: 200px;
       min-width: 95px;
       height: auto;
       border-radius: 22px;
@@ -543,12 +557,12 @@
     <section class="about-section" id="about">
       <h2 class="section-title">About Me</h2>
       <div class="about-row">
-        <div class="glass-card">
-          <img src="cameoji.png" alt="Cameron Watts emoji" class="about-photo" />
-        </div>
-        <div class="glass-card">
-          <div class="about-summary">
-            Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech. Curious, collaborative, and detail-oriented, I love turning information into insight. Exploring the space between business problems and tech-driven solutions helps me grow every day.
+        <div class="glass-card about-merged">
+          <div class="about-combined">
+            <img src="cameoji.png" alt="Cameron Watts emoji" class="about-photo" />
+            <div class="about-summary">
+              Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech. Curious, collaborative, and detail-oriented, I love turning information into insight. Exploring the space between business problems and tech-driven solutions helps me grow every day.
+            </div>
           </div>
         </div>
       </div>
