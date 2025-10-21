@@ -74,6 +74,21 @@
       position: relative;
     }
     .hero-badge { display: none !important; }
+    .hero-glow-bg {
+      position: absolute;
+      top: 48%; left: 50%;
+      transform: translate(-50%, -58%);
+      width: 72vw;
+      height: 34vw;
+      max-width: 920px;
+      max-height: 500px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.42;
+      filter: blur(46px) saturate(160%);
+      background: radial-gradient(ellipse 62% 45% at 60% 37%, #6a86ff 48%, #9f63ff 77%, #232373 100%, #0000 100%);
+      transition: opacity 0.45s;
+    }
     .hero-content {
       display: flex;
       flex-direction: column;
@@ -81,6 +96,8 @@
       justify-content: center;
       min-height: 75vh;
       width: 100vw;
+      position: relative;
+      z-index: 1;
     }
     .hero-title {
       font-family: 'SF Pro Display', sans-serif;
@@ -173,6 +190,7 @@
   </nav>
   <main>
     <div class="hero-content">
+      <div class="hero-glow-bg"></div>
       <h1 class="hero-title">Cameron Watts</h1>
       <div class="hero-desc">
         Business Analytics and Information Systems student at the University of South Florida.
