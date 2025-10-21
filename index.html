@@ -172,7 +172,7 @@
       font-weight: 400;
     }
     .about-section {
-      margin: 48px auto 0 auto;
+      margin: 16px auto 68px auto;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -180,6 +180,7 @@
       max-width: 820px;
       position: relative;
       z-index: 2;
+      padding-bottom: 64px; /* space below cards */
     }
     .glass-card {
       background: rgba(27, 29, 47, 0.33);
@@ -195,10 +196,17 @@
       max-width: 320px;
       min-height: 220px;
       color: #f5f6fc;
+      justify-content: center;
+    }
+    .glass-card:first-child {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     .about-photo {
-      width: 102px;
-      max-width: 100%;
+      width: 60%;
+      max-width: 200px;
+      min-width: 90px;
       height: auto;
       border-radius: 22px;
       border: none;
