@@ -29,40 +29,29 @@
       background: rgba(24,24,24,0.92);
       backdrop-filter: blur(12px);
       box-shadow: 0 2px 12px 0 rgba(10,10,10,0.04);
-      padding: 0 2vw;
+      padding: 0 0;
       z-index: 22;
       height: 56px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       border: none;
     }
-    .nav .logo {
-      font-family: 'SF Pro Display', 'Roboto', Arial, sans-serif;
-      font-weight: 400;
-      font-size: 1.08rem;
-      color: #f4f4f4;
-      letter-spacing: 0.02em;
-      margin: 0;
-      padding: 0;
-      background: none; box-shadow: none; border-radius: 0;
-      display: flex; align-items: center;
-      line-height: 1;
-      white-space: nowrap;
-    }
+    .nav .logo { display: none; }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2vw;
-      justify-content: flex-end;
-      flex: none;
+      gap: 2.7vw;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
     }
     .nav-links a {
       color: #ededed;
       text-decoration: none;
       padding: 4px 8px;
       border-radius: 6px;
-      font-size: 1rem;
+      font-size: 1.13rem;
       font-weight: 400;
       font-family: 'SF Pro Display', 'Roboto', Arial, sans-serif;
       letter-spacing: .01em;
@@ -95,10 +84,10 @@
     }
     .hero-title {
       font-family: 'SF Pro Display', sans-serif;
-      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-size: clamp(3rem, 11vw, 6.0rem);
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      line-height: 1.08;
+      letter-spacing: -0.018em;
       color: #fff;
       margin-bottom: 16px;
       margin-top: 0;
@@ -174,12 +163,11 @@
 </head>
 <body>
   <nav class="nav">
-    <div class="logo">Cameron Watts</div>
     <div class="nav-links">
-      <a href="#services">Services</a>
+      <a href="#about">About Me</a>
+      <a href="#experience">Work Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact Me</a>
     </div>
   </nav>
   <main>
