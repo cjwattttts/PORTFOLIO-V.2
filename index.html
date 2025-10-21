@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cameron Watts | Business Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(ellipse 120% 80% at 40% 30%, #252525 82%, #0e0e0e 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100vw;
+      background: rgba(24,24,24,0.72);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 32px 0 rgba(10,10,10,0.24);
+      padding: 0 3vw;
+      z-index: 22;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; font-weight: 900; font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .logo .mark {
+      width: 30px;height:30px; border-radius:10px; background: linear-gradient(120deg,#fff3 25%,#fff9 90%); margin-right:10px; box-shadow: 0 2px 12px #fff3;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap:2vw;
+    }
+    .nav-links a {
+      color: #ededed;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size:1.08rem;
+      font-weight: 500;
+      transition: background 0.18s;
+    }
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.09);
+    }
+    .cta {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1.5px solid rgba(150,150,150,0.09);
+      box-shadow: 0 2px 24px #fff1;
+      border-radius: 11px;
+      padding: 9px 24px;
+      font-size: 1rem;
+      margin-left:2vw;
+      font-family: 'Montserrat', sans-serif;
+      font-weight:700;
+      cursor: pointer;
+      transition: backdrop-filter .2s, background .2s;
+      backdrop-filter: blur(7px) saturate(180%);
+    }
+    .cta:hover {
+      background: rgba(255,255,255,0.29);
+      color: #000; border-color: #e7e7e7;
+    }
+    main {
+      min-height: 100vh;
+      padding-top: 10vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      font-size:1.05rem;
+      display: inline-block;
+      margin-bottom: 18px;
+      background: rgba(40,40,40,0.36);
+      border-radius: 22px;
+      color: #b8b8b8;
+      padding: 7px 21px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      font-weight:600;
+      box-shadow: 0 0px 12px #fff1;
+      backdrop-filter: blur(8px) saturate(1.8);
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem,7vw,4.1rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 14px;
+      margin-top:0;
+      text-shadow: 0 5px 70px #fff9, 0 2px 14px #000a;
+    }
+    .hero-desc {
+      max-width: 500px;
+      color: #d2d2d2;
+      font-size: 1.13rem;
+      font-weight: 400;
+      margin-bottom: 33px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 20px #000a;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 23px;
+      justify-content: center;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+    }
+    .glass-btn {
+      padding: 15px 34px;
+      font-size: 1.16rem;
+      font-family: 'Montserrat',sans-serif;
+      font-weight: 700;
+      border-radius: 17px;
+      border: 1.8px solid rgba(255,255,255,0.22);
+      background: rgba(50,50,50,0.34);
+      box-shadow: 0 2px 64px #fff2, 0 1px 12px #0002;
+      color: #fafafa;
+      cursor: pointer;
+      transition: background 0.22s, color .13s, border .18s;
+      backdrop-filter: blur(6px) saturate(140%);
+    }
+    .glass-btn:hover {
+      background: rgba(235,235,235,0.4);
+      color: #000;
+    }
+    .hero-scroll {
+      margin-top: -25px;
+      color: #c6c6c6;
+      font-size:14px;
+      opacity:0.8;
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    .scroll-down-icon {
+      width: 36px; height: 36px;
+      margin: 7px auto 0 auto;
+      display: block;
+      filter: drop-shadow(0 8px 24px #fff4);
+      animation: bounce 1.5s infinite alternate;
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(17px); }
+    }
+    .brands {
+      width: 100vw;
+      margin: 48px auto 0 auto;
+      display: flex; justify-content: center; gap: 52px;
+      opacity:0.92;
+      flex-wrap: wrap;
+    }
+    .brand-logo {
+      font-family: 'Montserrat',sans-serif;
+      color: #dedede;
+      font-size: 1.45rem;
+      opacity: 0.62;
+      letter-spacing:0.013em;
+      padding: 9px 18px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px #fff2, 0 1px 7px #0003;
+    }
+    @media (max-width: 700px) {
+      .nav { padding: 0 5px; }
+      .nav-links { gap: 13px; }
+      .hero-title { font-size: 2.1rem; }
+      .brands { gap: 12px; font-size:1.01rem;}
+      .brand-logo { font-size: 1.04rem;}
+      main { padding-top: 4.5rem; }
+      .nav .logo { font-size: 1.15rem;}
+    }
+    /* Optional: subtle fog/blur effect overlay background */
+    .fancy-bg {
+      position:fixed; z-index:0; top:0; left:0; width:100vw; height:100vh; pointer-events:none;
+    }
+    .fancy-bg::before {
+      content:''; display: block;
+      width:100vw; height:100vh;
+      background-image: radial-gradient(ellipse 55% 22% at 50% 22%, #fff8 0%, #fff0 100%), radial-gradient(ellipse 72% 55% at 69% 68%, #4446 0%, #0000 100%);
+      opacity:0.23;
+      filter: blur(18px) saturate(130%);
+    }
+  </style>
+</head>
+<body>
+  <div class="fancy-bg"></div>
+  <nav class="nav">
+    <div class="logo"><span class="mark">&#9635;</span> Portfolite</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <button class="cta">Get for Free</button>
+    </div>
+  </nav>
+  <main>
+    <span class="hero-badge">Crafting Unique Brand Identities</span>
+    <h1 class="hero-title">Cameron Watts<br>Branding that you<br>need Indeed</h1>
+    <div class="hero-desc">
+      Elevate your business with strategic analysis, sharp insights, and modern reporting. Showcasing your story through data-driven decisions and impactful design.
+    </div>
+    <div class="hero-cta">
+      <button class="glass-btn">Book a Free Call</button>
+      <button class="glass-btn">See Projects</button>
+    </div>
+    <div class="hero-scroll">
+      Scroll down<div><svg class="scroll-down-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="16" cy="16" rx="16" ry="16" fill="#fff" fill-opacity="0.07"/><path d="M11 14l5 5 5-5" stroke="#bdbdbd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      to see projects
+    </div>
+    <div class="brands">
+      <div class="brand-logo">Opal</div>
+      <div class="brand-logo">Dune</div>
+      <div class="brand-logo">Oasis</div>
+      <div class="brand-logo">Asterisk</div>
+    </div>
+  </main>
+</body>
+</html>
