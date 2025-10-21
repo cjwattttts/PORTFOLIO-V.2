@@ -172,15 +172,23 @@
       font-weight: 400;
     }
     .about-section {
-      margin: 16px auto 68px auto;
+      margin: 54px auto 26px auto;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
-      gap: 42px;
-      max-width: 820px;
+      align-items: center;
+      gap: 0;
+      max-width: 1180px;
       position: relative;
       z-index: 2;
-      padding-bottom: 64px; /* space below cards */
+    }
+    .about-row {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
     }
     .glass-card {
       background: rgba(27, 29, 47, 0.33);
@@ -258,12 +266,18 @@
       50% { transform: rotate(-5deg); }
       100% { transform: rotate(-7deg); }
     }
-    @media (max-width: 840px) {
+    @media (max-width: 950px) {
       .about-section {
         flex-direction: column;
         gap: 22px;
         align-items: center;
-        max-width: 95vw;
+        max-width: 96vw;
+      }
+      .about-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        width: 100%;
       }
       .glass-card {
         min-width: 0;
@@ -421,8 +435,8 @@
     .fancy-divider {
       border: none;
       height: 2px;
-      max-width: 1500px;
-      width: 92vw;
+      max-width: 1920px;
+      width: 98vw;
       margin: 54px auto 42px auto;
       background: linear-gradient(90deg,rgba(50,54,70,0) 0%, #23252b 36%, #23252b 64%, rgba(50,54,70,0) 100%);
       opacity: 0.35;
@@ -464,14 +478,15 @@
     </div>
     <hr class="fancy-divider" />
     <section class="about-section" id="about">
-      <div class="glass-card">
-        <img src="cameoji.png" alt="Cameron Watts emoji" class="about-photo" />
-      </div>
-      <div class="glass-card">
-        <div class="about-summary">
-          Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech.
-          Curious, collaborative, and detail-oriented, I love turning information into insight.
-          Exploring the space between business problems and tech-driven solutions helps me grow every day.
+      <h2 class="section-title">About Me</h2>
+      <div class="about-row">
+        <div class="glass-card">
+          <img src="cameoji.png" alt="Cameron Watts emoji" class="about-photo" />
+        </div>
+        <div class="glass-card">
+          <div class="about-summary">
+            Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech. Curious, collaborative, and detail-oriented, I love turning information into insight. Exploring the space between business problems and tech-driven solutions helps me grow every day.
+          </div>
         </div>
       </div>
     </section>
