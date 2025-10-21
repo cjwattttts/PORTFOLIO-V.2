@@ -393,18 +393,21 @@
     /* Career: compact 2x2 grid */
     .career-section .card-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(320px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(420px, 1fr));
+      gap: 12px;
       align-items: stretch;
       justify-items: center;
       width: 100%;
+      max-width: 1300px;
+      margin: 0 auto 32px auto;
     }
     @media (max-width: 900px) {
       .career-section .card-list { grid-template-columns: 1fr; }
     }
     .exp-card {
       width: 100%;
-      max-width: 560px;
+      max-width: none;
+      box-sizing: border-box;
       padding: 10px 18px;
     }
     .career-section .card-title { font-size: 1.35rem; margin-bottom: 6px; }
