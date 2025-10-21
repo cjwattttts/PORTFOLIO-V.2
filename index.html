@@ -349,25 +349,67 @@
       margin: 0 auto 0 auto;
       display: flex; flex-direction: column; align-items: center;
     }
-    /* For Projects (two-column grid): */
+    /* Projects: stacked rows with media left + content right */
     .projects-section .card-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      justify-items: center;
-      margin-bottom: 38px;
-    }
-    @media (max-width: 900px) {
-      .projects-section .card-list { grid-template-columns: 1fr; gap: 20px; }
-    }
-    /* For Career Experience (vertical stack): */
-    .career-section .card-list {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 28px;
+      justify-content: center;
       align-items: center;
+      width: 100%;
       margin-bottom: 38px;
     }
+    .project-row {
+      background: rgba(27, 29, 47, 0.33);
+      border-radius: 24px;
+      box-shadow: 0 10px 36px 0 rgba(24,21,44,0.14), 0 2.5px 18px #0003;
+      backdrop-filter: blur(23px) saturate(120%);
+      border: 1.6px solid rgba(255,255,255,0.085);
+      display: flex;
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 18px;
+      overflow: hidden;
+    }
+    .project-media {
+      flex: 0 0 48%;
+      min-height: 260px;
+      border-radius: 16px;
+      background: radial-gradient(120% 120% at 30% 30%, #2a2f46 0%, #181a23 60%, #121318 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .project-media img { width:100%; height:100%; object-fit: cover; display:block; border-radius: 14px; }
+    .project-info { flex: 1; display:flex; flex-direction: column; justify-content:center; text-align: left; }
+    .project-title { font-family:'SF Pro Display','Roboto',Arial,sans-serif; font-weight:400; font-size:2.0rem; color:#f8fafd; margin: 6px 0 10px 0; letter-spacing:-0.015em; }
+    .project-sub { font-size:1.02rem; color:#c1c4da; margin-bottom: 10px; }
+    .project-desc { font-size:1.08rem; color:#d0d3e7; line-height:1.5; }
+    .project-tags { margin-top: 14px; display:flex; gap:10px; flex-wrap: wrap; }
+    .project-tag { padding: 7px 12px; border-radius: 10px; border:1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color:#dfe5ff; font-size:.92rem; }
+    @media (max-width: 900px) {
+      .project-row { flex-direction: column; }
+      .project-media { flex: none; min-height: 180px; }
+    }
+    /* Career: compact 2x2 grid */
+    .career-section .card-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
+      gap: 22px;
+      align-items: stretch;
+      justify-items: center;
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .career-section .card-list { grid-template-columns: 1fr; }
+    }
+    .exp-card {
+      width: 100%;
+      max-width: 560px;
+      padding: 10px 18px;
+    }
+    .career-section .card-title { font-size: 1.35rem; margin-bottom: 6px; }
+    .career-section .card-sub { font-size: .98rem; margin-bottom: 7px; }
+    .career-section .card-desc { font-size: .98rem; line-height: 1.38; }
     /* Timeline Styles -- now uses SVG curve, no dots, and center-aligned */
     .career-section {
       width:100vw; max-width:100vw;
@@ -513,20 +555,46 @@
     <section class="projects-section" id="projects">
       <h2 class="section-title">Projects</h2>
       <div class="card-list">
-        <div class="glass-card project-card">
-          <div class="card-title">Amazon Sales Analytics Case Study</div>
-          <div class="card-sub">SQL, Excel, Power BI</div>
-          <div class="card-desc">Modeled pricing/patterns for 1,290 Amazon products, built Power BI dashboard with dynamic filters and KPIs, identified patterns linking discounting and revenue by electronics segment.</div>
+        <div class="project-row">
+          <div class="project-media"> <!-- Add your image inside if available -->
+            <!-- <img src="assets/project1.png" alt="Project preview"/> -->
+          </div>
+          <div class="project-info">
+            <div class="project-title">Amazon Sales Analytics Case Study</div>
+            <div class="project-sub">SQL, Excel, Power BI</div>
+            <div class="project-desc">Modeled pricing/patterns for 1,290 Amazon products; built a Power BI dashboard with KPIs and dynamic filters; identified links between discounting and revenue by electronics segment.</div>
+            <div class="project-tags">
+              <span class="project-tag">Dashboard</span>
+              <span class="project-tag">Data Cleaning</span>
+              <span class="project-tag">Insights</span>
+            </div>
+          </div>
         </div>
-        <div class="glass-card project-card">
-          <div class="card-title">Retail Trend Analysis</div>
-          <div class="card-sub">Excel, Tableau</div>
-          <div class="card-desc">Used Excel and Tableau (bar charts, heatmaps) to uncover pricing, margin, and market insights. Delivered dashboards supporting strategic decisions for Western US retail.</div>
+        <div class="project-row">
+          <div class="project-media"></div>
+          <div class="project-info">
+            <div class="project-title">Retail Trend Analysis</div>
+            <div class="project-sub">Excel, Tableau</div>
+            <div class="project-desc">Used Excel and Tableau (bar charts, heatmaps) to uncover pricing, margin, and market insights. Delivered dashboards supporting strategic decisions for Western US retail.</div>
+            <div class="project-tags">
+              <span class="project-tag">Tableau</span>
+              <span class="project-tag">Heatmap</span>
+              <span class="project-tag">Pricing</span>
+            </div>
+          </div>
         </div>
-        <div class="glass-card project-card">
-          <div class="card-title">Data Analytics Professional Certification</div>
-          <div class="card-sub">Google, Coursera</div>
-          <div class="card-desc">Completed Google’s 8-course program—SQL, Tableau, Excel, and business intelligence. Applied ETL, data wrangling, dashboarding, and analysis to real-world data.</div>
+        <div class="project-row">
+          <div class="project-media"></div>
+          <div class="project-info">
+            <div class="project-title">Data Analytics Professional Certification</div>
+            <div class="project-sub">Google / Coursera</div>
+            <div class="project-desc">Completed Google’s 8-course program covering SQL, Tableau, Excel, and BI. Applied ETL, wrangling, dashboarding, and analysis to real-world datasets.</div>
+            <div class="project-tags">
+              <span class="project-tag">SQL</span>
+              <span class="project-tag">Visualization</span>
+              <span class="project-tag">BI</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
