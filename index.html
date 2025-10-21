@@ -517,6 +517,36 @@
       right: 0;
       background: linear-gradient(180deg, rgba(15,15,17,0.03) 0%, #1a191b 37%, #232325 85%, rgba(14,14,14,0.01) 100%);
     }
+
+    /* Subtle data rain overlay */
+    .data-rain {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0; /* keep behind content */
+      overflow: hidden;
+    }
+    .data-drop {
+      position: absolute;
+      top: -2rem;
+      color: rgba(158, 176, 255, 0.18);
+      font-family: 'SF Pro Display', 'Roboto', monospace;
+      text-shadow: 0 0 8px rgba(122, 71, 237, 0.18);
+      filter: blur(0.2px);
+      opacity: 0;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) translateZ(0); opacity: 0; }
+      10% { opacity: .45; }
+      90% { opacity: .15; }
+      100% { transform: translateY(105vh) translateZ(0); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .data-rain { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -528,6 +558,7 @@
       <a href="#contact">Contact Me</a>
     </div>
   </nav>
+  <div class="data-rain" aria-hidden="true"></div>
   <main>
     <div class="edge-glow-left"></div>
     <div class="edge-glow-right"></div>
@@ -692,6 +723,44 @@
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(scramble, 400); // Small delay for effect
     });
+  </script>
+  <script>
+    // Subtle data rain generator (very low density for performance)
+    (function() {
+      const rain = document.querySelector('.data-rain');
+      if (!rain) return;
+      const CHARS = '01{}[]();,.|%$#@*&≡≠ΣΔπλ<>:+-';
+      function spawnDrop() {
+        const span = document.createElement('span');
+        span.className = 'data-drop';
+        span.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+        // Randomize position/sizing/speed subtly
+        const left = Math.random() * 100; // vw
+        const size = 8 + Math.random() * 6; // 8–14px
+        const dur = 6 + Math.random() * 6; // 6–12s
+        const delay = Math.random() * 1.5; // small stagger
+        const hueShift = Math.random() * 6; // tiny color variance
+        span.style.left = left + 'vw';
+        span.style.fontSize = size + 'px';
+        span.style.animationDuration = dur + 's';
+        span.style.animationDelay = delay + 's';
+        span.style.transform = 'translateY(0) rotate(' + (Math.random() * 10 - 5) + 'deg)';
+        span.style.color = `rgba(${158-hueShift}, ${176-hueShift}, ${255-hueShift*2}, 0.18)`;
+        rain.appendChild(span);
+        // Cleanup after animation
+        setTimeout(() => span.remove(), (dur + delay) * 1000 + 200);
+      }
+      // Control density (drops per second)
+      let count = 0;
+      const MAX_DROPS = 45; // on screen cap (approx)
+      setInterval(() => {
+        if (rain.childElementCount < MAX_DROPS) {
+          // spawn 1–3 drops per tick randomly
+          const n = Math.random() < 0.5 ? 2 : 3;
+          for (let i = 0; i < n; i++) spawnDrop();
+        }
+      }, 500);
+    })();
   </script>
 </body>
 </html>
