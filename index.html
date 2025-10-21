@@ -238,7 +238,7 @@
       border: 1.1px solid rgba(255,255,255,0.10);
       position: relative;
       z-index: 2;
-      transform: rotate(-14deg);
+      transform: rotate(-20deg);
       animation: subtleShakeContainer 2.7s ease-in-out infinite alternate;
     }
     .hero-graph-icon {
@@ -246,13 +246,12 @@
       height: 38px;
       display: block;
       color: #fff;
-      transform: rotate(-7deg);
-      animation: subtleShakeIcon 2.7s ease-in-out infinite alternate;
+      /* No transform/animation here */
     }
     @keyframes subtleShakeContainer {
-      0% { transform: rotate(-16deg); }
-      50% { transform: rotate(-12deg); }
-      100% { transform: rotate(-14deg); }
+      0% { transform: rotate(-22deg); }
+      50% { transform: rotate(-18deg); }
+      100% { transform: rotate(-20deg); }
     }
     @keyframes subtleShakeIcon {
       0% { transform: rotate(-9deg); }
