@@ -667,17 +667,18 @@
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const finalText = el.textContent;
     let frame = 0;
-    let done = false;
+    const PRE_SCRAMBLE_FRAMES = 10; // ensure ALL letters scramble first
+
     function scramble() {
       let out = '';
       for (let i = 0; i < finalText.length; i++) {
-        if (finalText[i] === ' ') {
-          out += ' ';
-          continue;
-        }
-        // Gradually lock in each letter
-        if (frame/2 > i) {
-          out += finalText[i];
+        const ch = finalText[i];
+        if (ch === ' ') { out += ' '; continue; }
+
+        // After a pre-scramble period, lock letters from left to right.
+        const progress = Math.max(0, frame - PRE_SCRAMBLE_FRAMES);
+        if ((progress / 2) > i) {
+          out += ch; // locked in correct letter
         } else {
           out += letters[Math.floor(Math.random() * letters.length)];
         }
@@ -687,11 +688,11 @@
       if (out !== finalText) {
         requestAnimationFrame(scramble);
       } else {
-        el.textContent = finalText; // Ensure clean finish
+        el.textContent = finalText; // clean finish
       }
     }
     window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(scramble, 400); // Small delay for effect
+      setTimeout(scramble, 400);
     });
   </script>
   
