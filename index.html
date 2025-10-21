@@ -224,6 +224,28 @@
       line-height: 1.54;
       letter-spacing: 0.001em;
     }
+    .hero-graph-container {
+      margin: 0 auto 0.32rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: rgba(27, 29, 47, 0.33);
+      border-radius: 16px;
+      box-shadow: 0 6px 14px 0 rgba(24,21,44,0.12), 0 2.5px 8px #0003;
+      backdrop-filter: blur(18px) saturate(113%);
+      border: 1.1px solid rgba(255,255,255,0.10);
+      position: relative;
+      z-index: 2;
+      transform: rotate(-17deg);
+    }
+    .hero-graph-icon {
+      width: 36px;
+      height: 36px;
+      display: block;
+      color: #fff;
+    }
     @media (max-width: 840px) {
       .about-section {
         flex-direction: column;
@@ -259,6 +281,13 @@
   </nav>
   <main>
     <div class="hero-content">
+      <div class="hero-graph-container">
+        <svg class="hero-graph-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="20" x2="12" y2="10" />
+          <line x1="18" y1="20" x2="18" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="16" />
+        </svg>
+      </div>
       <div class="hero-glow-bg"></div>
       <h1 class="hero-title">Cameron Watts</h1>
       <div class="hero-desc">
