@@ -204,6 +204,21 @@
     .about-merged { width: 100% !important; max-width: 1140px; }
     .about-combined { display: flex; gap: 32px; align-items: center; justify-content: flex-start; text-align: left; }
     @media (max-width: 900px) { .about-combined { flex-direction: column; text-align: center; } }
+
+    /* About gallery */
+    .about-gallery { display: flex; gap: 18px; margin-top: 18px; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .about-thumb {
+      width: 30%;
+      min-width: 220px;
+      height: 130px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(120% 120% at 30% 30%, #2a2f46 0%, #181a23 60%, #121318 100%);
+      box-shadow: 0 6px 22px rgba(24,21,44,0.13), 0 1.5px 10px rgba(0,0,0,0.25);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-thumb img { width: 100%; height: 100%; object-fit: cover; display:block; }
     .glass-card {
       background: rgba(27, 29, 47, 0.33);
       border-radius: 24px;
@@ -575,6 +590,11 @@
             <div class="about-summary">
               Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech. Curious, collaborative, and detail-oriented, I love turning information into insight. Exploring the space between business problems and tech-driven solutions helps me grow every day.
             </div>
+          </div>
+          <div class="about-gallery">
+            <div class="about-thumb"> <!-- optional: <img src="assets/pic1.jpg" alt=""/> --> </div>
+            <div class="about-thumb"></div>
+            <div class="about-thumb"></div>
           </div>
         </div>
       </div>
