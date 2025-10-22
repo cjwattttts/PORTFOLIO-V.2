@@ -147,6 +147,8 @@
       transition: background 0.17s, color .13s, border .13s;
       backdrop-filter: blur(5px) saturate(110%);
       letter-spacing: .01em;
+      text-decoration: none; /* remove underline for anchors */
+      display: inline-block; /* anchor behaves like button */
     }
     .glass-btn:hover {
       background: rgba(235,235,235,0.20);
@@ -579,7 +581,7 @@
         Bridging business logic and data storytelling to turn analytics into action
       </div>
       <div class="hero-cta">
-        <button class="glass-btn">View Resume</button>
+        <a class="glass-btn" href="CameronJWatts2025.pdf" target="_blank" rel="noopener">View Resume</a>
         <button class="glass-btn">See My Work</button>
       </div>
       <div class="brands">
@@ -598,7 +600,7 @@
           <div class="about-combined">
             <img src="cameoji.png" alt="Cameron Watts emoji" class="about-photo" />
             <div class="about-summary">
-              Hi! I'm Cameron Watts, an undergraduate at USF with a passion for business analytics, data, and emerging tech. Curious, collaborative, and detail-oriented, I love turning information into insight. Exploring the space between business problems and tech-driven solutions helps me grow every day.
+              I'm Cameron Watts, a Business Analytics and Information Systems student at the University of South Florida passionate about turning data into business strategy. I enjoy solving real problems through analytics, from financial process improvements to dashboard design. Outside of work, I love to surf, run, lift, and explore new coffee spots.
             </div>
           </div>
           <div class="about-gallery">
