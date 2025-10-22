@@ -201,16 +201,25 @@
     .about-row .glass-card:first-child { width: 36%; }
     .about-row .glass-card:last-child { width: 64%; }
     /* Merged about layout */
-    .about-merged { width: 100% !important; max-width: 1140px; }
+    .about-merged { width: 100% !important; max-width: 1140px; padding: 18px !important; }
     .about-combined { display: flex; gap: 32px; align-items: center; justify-content: flex-start; text-align: left; }
     @media (max-width: 900px) { .about-combined { flex-direction: column; text-align: center; } }
 
     /* About gallery */
-    .about-gallery { display: flex; gap: 18px; margin-top: 18px; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .about-gallery { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 24px; 
+      row-gap: 18px;
+      margin-top: 18px; 
+      width: 100%; 
+      justify-content: stretch; 
+      align-items: stretch;
+    }
     .about-thumb {
-      width: 30%;
-      min-width: 220px;
-      height: 190px; /* increased from 160px */
+      width: auto; /* fill grid column */
+      min-width: 0;
+      height: 190px; /* current target height */
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.08);
       background: radial-gradient(120% 120% at 30% 30%, #2a2f46 0%, #181a23 60%, #121318 100%);
