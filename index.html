@@ -407,7 +407,7 @@
     /* Career: compact 2x2 grid */
     .career-section .card-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(420px, 1fr));
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
       gap: 12px;
       align-items: stretch;
       justify-items: center;
@@ -427,6 +427,17 @@
     .career-section .card-title { font-size: 1.35rem; margin-bottom: 6px; }
     .career-section .card-sub { font-size: .98rem; margin-bottom: 7px; }
     .career-section .card-desc { font-size: .98rem; line-height: 1.38; }
+
+    /* Certifications: same row layout as projects */
+    .certs-section .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 38px;
+    }
     /* Timeline Styles -- now uses SVG curve, no dots, and center-aligned */
     .career-section {
       width:100vw; max-width:100vw;
@@ -601,19 +612,6 @@
             </div>
           </div>
         </div>
-        <div class="project-row">
-          <div class="project-media"></div>
-          <div class="project-info">
-            <div class="project-title">Data Analytics Professional Certification</div>
-            <div class="project-sub">Google / Coursera</div>
-            <div class="project-desc">Completed Google’s 8-course program covering SQL, Tableau, Excel, and BI. Applied ETL, wrangling, dashboarding, and analysis to real-world datasets.</div>
-            <div class="project-tags">
-              <span class="project-tag">SQL</span>
-              <span class="project-tag">Visualization</span>
-              <span class="project-tag">BI</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     <hr class="fancy-divider" />
@@ -640,6 +638,26 @@
           <div class="card-title">USF Surf Club — Risk Manager</div>
           <div class="card-sub">Tampa, FL | 2022-2024</div>
           <div class="card-desc">Analyzed event risk, tracked member safety, and assisted logistics for 120+ person student org. Led mitigation/data efforts for continuous improvement.</div>
+        </div>
+      </div>
+    </section>
+    <hr class="fancy-divider" />
+    <!-- CERTIFICATIONS SECTION -->
+    <section class="certs-section" id="certifications">
+      <h2 class="section-title">Certifications</h2>
+      <div class="card-list">
+        <div class="project-row">
+          <div class="project-media"></div>
+          <div class="project-info">
+            <div class="project-title">Data Analytics Professional Certification</div>
+            <div class="project-sub">Google, Coursera</div>
+            <div class="project-desc">Completed Google’s 8-course program covering SQL, Tableau, Excel, and BI. Applied ETL, wrangling, dashboarding, and analysis to real-world datasets.</div>
+            <div class="project-tags">
+              <span class="project-tag">SQL</span>
+              <span class="project-tag">Visualization</span>
+              <span class="project-tag">BI</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
