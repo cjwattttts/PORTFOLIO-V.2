@@ -6,6 +6,9 @@
   <title>Cameron Watts | Business Analyst Portfolio</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
   <style>
+    /* Ensure anchor targets aren't hidden behind fixed nav */
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    section { scroll-margin-top: 84px; }
     html, body {
       margin: 0;
       padding: 0;
@@ -655,9 +658,15 @@
     /* About text in light mode */
     body.light .about-summary { color: #2c2f36; }
 
-    /* Invert contact icons in light mode */
-    body.light .contact-icons svg { filter: invert(1) brightness(0.2); }
-    body.light .contact-icons img { filter: invert(1) hue-rotate(180deg); }
+    /* Contact icons: mode-aware colors */
+    .contact-icons { color: #ffffff; }
+    .contact-icons svg, .contact-icons img { width: 30px; height: 30px; }
+    .contact-icons a { color: inherit !important; }
+    .contact-icons a:link, .contact-icons a:visited { color: inherit !important; }
+    /* PNG logos: white in dark, black in light */
+    .contact-icons img { filter: invert(1) brightness(2); }
+    body.light .contact-icons { color: #111111; }
+    body.light .contact-icons img { filter: none; }
 
     /* Light mode: hero graph glassmorphism */
     body.light .hero-graph-container {
@@ -939,14 +948,17 @@
       <div class="contact-icons" style="display: flex; gap:42px; justify-content: center; align-items: center; opacity: .93">
         <a href="tel:+14015333771" title="Call" aria-label="Call" target="_blank" style="display:inline-block">
           <!-- Filled phone icon (Material) -->
-          <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38" viewBox="0 0 24 24" fill="#fff"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.004 1.004 0 011.11-.21c1.21.49 2.54.76 3.95.76a1 1 0 011 1v3.02c0 .55-.45 1-1 1A17 17 0 013 5c0-.55.45-1 1-1h3a1 1 0 011 1c0 1.41.27 2.74.76 3.95.16.41.06.89-.21 1.11l-2.2 2.2z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.004 1.004 0 011.11-.21c1.21.49 2.54.76 3.95.76a1 1 0 011 1v3.02c0 .55-.45 1-1 1A17 17 0 013 5c0-.55.45-1 1-1h3a1 1 0 011 1c0 1.41.27 2.74.76 3.95.16.41.06.89-.21 1.11l-2.2 2.2z"/></svg>
         </a>
         <a href="mailto:cameron.jwatts@outlook.com" title="Email" aria-label="Email" target="_blank" style="display:inline-block">
           <!-- Filled mail icon (Material) -->
-          <svg xmlns="http://www.w3.org/2000/svg" height="38" width="38" viewBox="0 0 24 24" fill="#fff"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
         <a href="https://linkedin.com/in/cameronrjameswatts" title="LinkedIn" aria-label="LinkedIn" target="_blank" style="display:inline-block">
-          <img src="linkedinn.png" alt="LinkedIn logo" height="38" style="display:block;" />
+          <img src="linkedinn.png" alt="LinkedIn logo" height="30" style="display:block;" />
+        </a>
+        <a href="https://github.com/" title="GitHub" aria-label="GitHub" target="_blank" style="display:inline-block">
+          <img src="github.png" alt="GitHub logo" height="30" style="display:block;" />
         </a>
       </div>
     </section>
