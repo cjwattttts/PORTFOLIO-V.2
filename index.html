@@ -565,16 +565,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px; height: 40px;
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
+      padding: 2px; /* smaller touch area */
+      background: transparent; /* no circle */
+      border: none; /* remove border */
+      color: #fff; /* visible on dark */
       cursor: pointer;
-      backdrop-filter: blur(6px) saturate(120%);
     }
-    .theme-toggle:hover { background: rgba(255,255,255,0.15); }
-    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+    .theme-toggle:hover { opacity: 0.9; }
+    .theme-toggle svg { width: 18px; height: 18px; display: block; }
 
     /* Light mode overrides (keep dark as default) */
     body.light {
@@ -630,19 +628,25 @@
 
     /* Toggle button light styling */
     body.light .theme-toggle {
-      background: rgba(0,0,0,0.06);
-      border-color: rgba(0,0,0,0.12);
-      color: #111;
+      background: transparent;
+      border-color: transparent;
+      color: #111; /* visible on light */
     }
-    body.light .theme-toggle:hover { background: rgba(0,0,0,0.1); }
+    body.light .theme-toggle:hover { opacity: 0.9; }
   </style>
 </head>
 <body>
-  <!-- Theme toggle: moon/sun -->
+  <!-- Theme toggle: moon/sun (Lucide icons) -->
   <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-    <!-- Icons swap via JS -->
-    <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
-    <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4a1 1 0 011 1v1a1 1 0 01-2 0V5a1 1 0 011-1zm0 13a5 5 0 100-10 5 5 0 000 10zm8-5a1 1 0 011 1h1a1 1 0 010 2h-1a1 1 0 01-1-1 1 1 0 010-2zm-8 6a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1zM4 12a1 1 0 01-1 1H2a1 1 0 010-2h1a1 1 0 011 1zm13.66-6.66a1 1 0 011.41 0l.71.71a1 1 0 01-1.41 1.41l-.71-.71a1 1 0 010-1.41zM5.93 17.66a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zm12.02 2.12a1 1 0 010-1.41l.71-.71a1 1 0 111.41 1.41l-.71.71a1 1 0 01-1.41 0zM5.22 4.05a1 1 0 010 1.41l-.71.71A1 1 0 112.1 4.76l.71-.71a1 1 0 011.41 0z"/></svg>
+    <!-- Lucide Moon -->
+    <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <!-- Lucide Sun -->
+    <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </svg>
   </button>
   <nav class="nav">
     <div class="nav-links">
