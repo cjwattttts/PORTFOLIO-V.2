@@ -979,11 +979,21 @@
       const iconSun = document.getElementById('iconSun');
       if(!btn||!iconMoon||!iconSun) return;
 
-      const saved = localStorage.getItem('site-theme');
+      let saved = localStorage.getItem('site-theme');
+      if(!saved) {
+        // Default first visit to light mode
+        document.body.classList.add('light');
+        localStorage.setItem('site-theme', 'light');
+        saved = 'light';
+      }
       if(saved === 'light') {
         document.body.classList.add('light');
         iconMoon.style.display = 'none';
         iconSun.style.display = 'block';
+      } else {
+        document.body.classList.remove('light');
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
       }
 
       btn.addEventListener('click', ()=>{
