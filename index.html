@@ -558,9 +558,10 @@
 
     /* Theme toggle button */
     .theme-toggle {
-      position: fixed;
-      top: 10px;
-      left: 10px;
+      position: absolute; /* position relative to nav */
+      top: 50%;
+      transform: translateY(-50%);
+      left: 12px;
       z-index: 50;
       display: inline-flex;
       align-items: center;
@@ -570,8 +571,10 @@
       border: none; /* remove border */
       color: #fff; /* visible on dark */
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
     .theme-toggle:hover { opacity: 0.9; }
+    .theme-toggle:focus, .theme-toggle:focus-visible { outline: none; box-shadow: none; }
     .theme-toggle svg { width: 18px; height: 18px; display: block; }
 
     /* Light mode overrides (keep dark as default) */
@@ -636,19 +639,19 @@
   </style>
 </head>
 <body>
-  <!-- Theme toggle: moon/sun (Lucide icons) -->
-  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-    <!-- Lucide Moon -->
-    <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-    <!-- Lucide Sun -->
-    <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="4"/>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-    </svg>
-  </button>
   <nav class="nav">
+    <!-- Theme toggle: moon/sun (Lucide icons) -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+      <!-- Lucide Moon -->
+      <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <!-- Lucide Sun -->
+      <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
     <div class="nav-links">
       <a href="#about">About Me</a>
       <a href="#experience">Work Experience</a>
