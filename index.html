@@ -555,9 +555,95 @@
       right: 0;
       background: linear-gradient(180deg, rgba(15,15,17,0.03) 0%, #1a191b 37%, #232325 85%, rgba(14,14,14,0.01) 100%);
     }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(6px) saturate(120%);
+    }
+    .theme-toggle:hover { background: rgba(255,255,255,0.15); }
+    .theme-toggle svg { width: 20px; height: 20px; display: block; }
+
+    /* Light mode overrides (keep dark as default) */
+    body.light {
+      background: radial-gradient(120% 80% at 40% 30%, #f3f4fb 82%, #e7e9f2 100%);
+      color: #0a0a0f;
+    }
+    body.light .nav {
+      background: rgba(255,255,255,0.72);
+      box-shadow: 0 4px 24px rgba(15,15,20,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    body.light .nav-links a { color: #1a1a1a; }
+    body.light .nav-links a:hover { color: #000; background: transparent; }
+
+    body.light .section-title { color: #0d0f14; }
+    body.light .hero-title { color: #0a0a0f; }
+    body.light .hero-desc { color: #4a4a54; }
+
+    body.light .glass-btn {
+      color: #111; border-color: rgba(0,0,0,0.16);
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    body.light .glass-btn:hover { background: rgba(0,0,0,0.06); color: #000; }
+
+    body.light .glass-card,
+    body.light .project-row {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 2px 10px rgba(0,0,0,0.05);
+      color: #13151a;
+    }
+    body.light .brand-logo {
+      background: rgba(0,0,0,0.06);
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 1px 6px rgba(0,0,0,0.04);
+    }
+
+    /* Edge glows become airy light tints */
+    body.light .edge-glow-left {
+      background: linear-gradient(180deg, #cfe7ff 0%, #d9e4ff 55%, #ffffff 100%);
+      opacity: 0.12;
+      filter: blur(75px) saturate(130%);
+    }
+    body.light .edge-glow-right {
+      background: linear-gradient(180deg, #f0e5ff 0%, #e9f2ff 80%, #ffffff 100%);
+      opacity: 0.12;
+      filter: blur(75px) saturate(130%);
+    }
+
+    /* About text in light mode */
+    body.light .about-summary { color: #2c2f36; }
+
+    /* Toggle button light styling */
+    body.light .theme-toggle {
+      background: rgba(0,0,0,0.06);
+      border-color: rgba(0,0,0,0.12);
+      color: #111;
+    }
+    body.light .theme-toggle:hover { background: rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
+  <!-- Theme toggle: moon/sun -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+    <!-- Icons swap via JS -->
+    <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+    <svg id="iconSun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4a1 1 0 011 1v1a1 1 0 01-2 0V5a1 1 0 011-1zm0 13a5 5 0 100-10 5 5 0 000 10zm8-5a1 1 0 011 1h1a1 1 0 010 2h-1a1 1 0 01-1-1 1 1 0 010-2zm-8 6a1 1 0 011 1v1a1 1 0 01-2 0v-1a1 1 0 011-1zM4 12a1 1 0 01-1 1H2a1 1 0 010-2h1a1 1 0 011 1zm13.66-6.66a1 1 0 011.41 0l.71.71a1 1 0 01-1.41 1.41l-.71-.71a1 1 0 010-1.41zM5.93 17.66a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zm12.02 2.12a1 1 0 010-1.41l.71-.71a1 1 0 111.41 1.41l-.71.71a1 1 0 01-1.41 0zM5.22 4.05a1 1 0 010 1.41l-.71.71A1 1 0 112.1 4.76l.71-.71a1 1 0 011.41 0z"/></svg>
+  </button>
   <nav class="nav">
     <div class="nav-links">
       <a href="#about">About Me</a>
@@ -746,5 +832,28 @@
     });
   </script>
   
+  <script>
+    // Theme toggle (persist to localStorage). Default: dark (no 'light' class).
+    (function(){
+      const btn = document.getElementById('themeToggle');
+      const iconMoon = document.getElementById('iconMoon');
+      const iconSun = document.getElementById('iconSun');
+      if(!btn||!iconMoon||!iconSun) return;
+
+      const saved = localStorage.getItem('site-theme');
+      if(saved === 'light') {
+        document.body.classList.add('light');
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+      }
+
+      btn.addEventListener('click', ()=>{
+        const isLight = document.body.classList.toggle('light');
+        localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+        iconMoon.style.display = isLight ? 'none' : 'block';
+        iconSun.style.display = isLight ? 'block' : 'none';
+      });
+    })();
+  </script>
 </body>
 </html>
