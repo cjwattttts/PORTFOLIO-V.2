@@ -561,7 +561,7 @@
       position: absolute; /* position relative to nav */
       top: 50%;
       transform: translateY(-50%);
-      left: 12px;
+      right: 12px;
       z-index: 50;
       display: inline-flex;
       align-items: center;
@@ -608,6 +608,17 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 2px 10px rgba(0,0,0,0.05);
       color: #13151a;
     }
+    /* Light mode text colors within cards/rows */
+    body.light .project-title { color: #0d0f14; }
+    body.light .project-sub { color: #3b3f48; }
+    body.light .project-desc { color: #2f3340; }
+    body.light .career-section .card-title { color: #0d0f14; }
+    body.light .career-section .card-sub { color: #3b3f48; }
+    body.light .career-section .card-desc { color: #2f3340; }
+    body.light .certs-section .project-title { color: #0d0f14; }
+    body.light .certs-section .project-sub { color: #3b3f48; }
+    body.light .certs-section .project-desc { color: #2f3340; }
+
     body.light .brand-logo {
       background: rgba(0,0,0,0.06);
       color: #333;
@@ -628,6 +639,10 @@
 
     /* About text in light mode */
     body.light .about-summary { color: #2c2f36; }
+
+    /* Invert contact icons in light mode */
+    body.light .contact-icons svg { filter: invert(1) brightness(0.2); }
+    body.light .contact-icons img { filter: invert(1) hue-rotate(180deg); }
 
     /* Toggle button light styling */
     body.light .theme-toggle {
