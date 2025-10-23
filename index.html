@@ -412,6 +412,7 @@
       max-width: 1100px;
       padding: 18px;
       overflow: hidden;
+      align-items: center; /* center media vertically so top/bottom spacing matches */
     }
     .project-media {
       flex: 0 0 48%;
@@ -738,6 +739,7 @@
       backdrop-filter: blur(10px) saturate(140%);
       -webkit-backdrop-filter: blur(10px) saturate(140%);
     }
+    body.light .certs-section .project-media { height: 220px; }
 
     /* Gallery Thumbs */
     body.light .about-thumb {
