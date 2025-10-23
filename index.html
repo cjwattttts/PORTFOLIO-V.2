@@ -650,6 +650,26 @@
     body.light .contact-icons svg { filter: invert(1) brightness(0.2); }
     body.light .contact-icons img { filter: invert(1) hue-rotate(180deg); }
 
+    /* Light mode: hero graph glassmorphism */
+    body.light .hero-graph-container {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0.12); /* subtle outline */
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06), 0 3px 12px rgba(0,0,0,0.05);
+      backdrop-filter: blur(8px) saturate(140%);
+    }
+    body.light .hero-graph-icon {
+      color: #525a6a;
+    }
+    body.light .hero-graph-icon path,
+    body.light .hero-graph-icon line,
+    body.light .hero-graph-icon polyline,
+    body.light .hero-graph-icon rect,
+    body.light .hero-graph-icon circle,
+    body.light .hero-graph-icon ellipse {
+      stroke: #525a6a !important;
+      fill: none;
+    }
+
     /* Toggle button light styling */
     body.light .theme-toggle {
       background: transparent;
