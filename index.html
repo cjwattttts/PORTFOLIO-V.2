@@ -663,10 +663,14 @@
     .contact-icons svg, .contact-icons img { width: 30px; height: 30px; }
     .contact-icons a { color: inherit !important; }
     .contact-icons a:link, .contact-icons a:visited { color: inherit !important; }
-    /* PNG logos: white in dark, black in light */
-    .contact-icons img { filter: invert(1) brightness(2); }
+    /* Default: no filter on PNG icons */
+    .contact-icons img { filter: none; }
+    /* Dark mode: invert GitHub (black logo → white) */
+    .contact-icons img[src="github.png"] { filter: invert(1) brightness(1.8); }
+    /* Light mode: invert LinkedIn (white logo → black), GitHub no inversion */
     body.light .contact-icons { color: #111111; }
-    body.light .contact-icons img { filter: none; }
+    body.light .contact-icons img[src="linkedinn.png"] { filter: invert(1); }
+    body.light .contact-icons img[src="github.png"] { filter: none; }
 
     /* Light mode: hero graph glassmorphism */
     body.light .hero-graph-container {
